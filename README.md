@@ -1,4 +1,4 @@
-hackncast_theme
+Hackncast Theme
 ===============
 
 Tema do site para Pelican
