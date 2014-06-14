@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+
+{% block styles %}
+    {{ super() }}
+{% endblock styles %}
+
+{% block content %}
+   <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <img class="img-responsive" src="{{ SITEURL }}/theme/img/logo.png" alt="">
+                    <div class="intro-text">
+                        <span class="name">Ouça e dissemine conhecimento</span>
+                        <span class="skills">Do it your self</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="box" id="episodes">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Episódios</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                {% for article in articles|sort %}
+                    <div class="col-sm-4 episode-item">
+                        <a href="{{ SITEURL}}/{{ article.url }}" class="episode-link">
+                            <div class="caption">
+                                <div class="caption-content">
+                                    <i class="fa fa-volume-up fa-3x"></i>
+                                    <br>
+                                    <span class="episode-name">{{ article.covertext }}</span>
+                                </div>
+                            </div>
+                            <img src="{{ SITEURL }}{{ article.coverimage }}" class="img-responsive" alt="" />
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="box about" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Sobre o Podcast</h2>
+                    <hr class="star-light-about">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-lg-offset-2">
+                    <p>O Hack ‘n’ Cast é um podcast sobre tecnologia, mas sempre mais voltado para o Open Source, Software Livre, GNU/Linux e programação. Mas não nos impede de falar outros temas interessantes.</p>
+                </div>
+                <div class="col-lg-4">
+                    <p>
+                    O primeiro objetivo era criar algo voltado para a comunidade Python, entretanto preferimos manter o escopo aberto e assim contribuir com toda a comunidade Open Source/Software Livre.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row col-md-offset-1">
+                <div class="col-md-12">
+                    <div class="col-lg-5">
+                        <div class="media">
+                            <a class="pull-left" href="#">
+                                <img class="media-object dp img-circle" src="https://lh5.googleusercontent.com/-tdNroc0oPGc/AAAAAAAAAAI/AAAAAAAAAOw/q_jbij7hbVI/s120-c/photo.jpg" style="width: 100px;height:100px;">
+                            </a>
+                            <div class="media-body authors-content">
+                                <h4 class="media-heading">Magnun Leno</h4>
+                                <p>Criador, Desenvolvedor e Autor do blog <a href="http://mindbending.org/">Mind Bending</a></p>
+                                <hr style="margin:8px auto">
+
+                                <a href="https://twitter.com/mind_bend" class="label label-default"><i class="fa fa-twitter"></i> Twitter</a>
+                                <a href="https://github.com/magnunleno" class="label label-default"><i class="fa fa-github"></i> Github</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="media">
+                            <a class="pull-left" href="#">
+                                <img class="media-object dp img-circle" src="https://lh3.googleusercontent.com/-ubgzC730QYE/AAAAAAAAAAI/AAAAAAAAAMA/baBevnRUSGQ/s120-c/photo.jpg" style="width: 100px;height:100px;">
+                            </a>
+                            <div class="media-body authors-content">
+                                <h4 class="media-heading">Bruno Barbosa</h4>
+                                <p>Co-Fundador do <a href="http://algoritmizando.com">Algoritmizando</a>, usuário GNU/Linux. Utiliza as tecnologias Zope/Plone, Django e web2py.</p>
+                                <hr style="margin:8px auto">
+
+                                <a href="https://twitter.com/brunobbbs" class="label label-default"><i class="fa fa-twitter"></i> Twitter</a>
+                                <a href="https://github.com/bruninbsb/" class="label label-default"><i class="fa fa-github"></i> Github</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="media">
+                            <a class="pull-left" href="#">
+                                <img class="media-object dp img-circle" src="https://lh6.googleusercontent.com/-WqpgBkIaepM/AAAAAAAAAAI/AAAAAAAAAJI/W2sWTkMnv1I/s120-c/photo.jpg" style="width: 100px;height:100px;">
+                            </a>
+                            <div class="media-body authors-content">
+                                <h4 class="media-heading">Gilson Filho</h4>
+                                <p>Desenvolvedor Python e Django, cansado de Java, recém carioca. Entusiasta Vim e usuário assíduo do <a href="http://github.com/gilsondev">Github</a></p>
+                                <hr style="margin:8px auto">
+
+                                <a href="https://twitter.com/gilsondev" class="label label-default"><i class="fa fa-twitter"></i> Twitter</a>
+                                <a href="https://github.com/gilsondev" class="label label-default"><i class="fa fa-github"></i> Github</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="media">
+                            <a class="pull-left" href="#">
+                                <img class="media-object dp img-circle" src="https://lh3.googleusercontent.com/-AfUOQdW-5zU/AAAAAAAAAAI/AAAAAAAAIbM/XO-Cf-sTbA8/s120-c/photo.jpg" style="width: 100px;height:100px;">
+                            </a>
+                            <div class="media-body authors-content">
+                                <h4 class="media-heading">Ricardo Medeiros</h4>
+                                <p>Cara a cara eu gaguejo, tenho dúvidas, sou pouco sociável. Mas, escrevendo, cuidado comigo.</p>
+                                <hr style="margin:8px auto">
+
+                                <a href="https://twitter.com/rictm" class="label label-default"><i class="fa fa-twitter"></i> Twitter</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="box contact" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Fale com a gente</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h3 style="text-align: center;"><a href="mailto:hackncast@gmail.com">hackncast@gmail.com</a></h3>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}
+
+{% block scripts %}
+    {{ super() }}
+    <script src="{{ SITEURL }}/theme/js/classie.js"></script>
+    <script src="{{ SITEURL }}/theme/js/cbpAnimatedHeader.js"></script>
+    <script src="{{ SITEURL }}/theme/js/freelancer.js"></script>
+{% endblock scripts %}
