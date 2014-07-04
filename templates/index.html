@@ -67,65 +67,24 @@
 
             <div class="row col-md-offset-1">
                 <div class="col-md-12">
+                    {% for author in ACTIVE_AUTHORS %}
                     <div class="col-lg-5">
                         <div class="media">
                             <a class="pull-left" href="#">
-                                <img class="media-object dp img-circle" src="https://lh5.googleusercontent.com/-tdNroc0oPGc/AAAAAAAAAAI/AAAAAAAAAOw/q_jbij7hbVI/s120-c/photo.jpg" style="width: 100px;height:100px;">
+                                <img class="media-object dp img-circle" src="{{ SITEAUTHORS[author]['image'] }}" style="width: 100px;height:100px;">
                             </a>
                             <div class="media-body authors-content">
-                                <h4 class="media-heading">Magnun Leno</h4>
-                                <p>Criador, Desenvolvedor e Autor do blog <a href="http://mindbending.org/">Mind Bending</a></p>
+                                <h4 class="media-heading">{{ author }}</h4>
+                                {{ SITEAUTHORS[author]['description'] }}
                                 <hr style="margin:8px auto">
 
-                                <a href="https://twitter.com/mind_bend" class="label label-default"><i class="fa fa-twitter"></i> Twitter</a>
-                                <a href="https://github.com/magnunleno" class="label label-default"><i class="fa fa-github"></i> Github</a>
+                                {% for link in SITEAUTHORS[author]['links'] %}
+                                {{ link }}
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-5">
-                        <div class="media">
-                            <a class="pull-left" href="#">
-                                <img class="media-object dp img-circle" src="https://lh3.googleusercontent.com/-ubgzC730QYE/AAAAAAAAAAI/AAAAAAAAAMA/baBevnRUSGQ/s120-c/photo.jpg" style="width: 100px;height:100px;">
-                            </a>
-                            <div class="media-body authors-content">
-                                <h4 class="media-heading">Bruno Barbosa</h4>
-                                <p>Co-Fundador do <a href="http://algoritmizando.com">Algoritmizando</a>, usuário GNU/Linux. Utiliza as tecnologias Zope/Plone, Django e web2py.</p>
-                                <hr style="margin:8px auto">
-
-                                <a href="https://twitter.com/brunobbbs" class="label label-default"><i class="fa fa-twitter"></i> Twitter</a>
-                                <a href="https://github.com/bruninbsb/" class="label label-default"><i class="fa fa-github"></i> Github</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-5">
-                        <div class="media">
-                            <a class="pull-left" href="#">
-                                <img class="media-object dp img-circle" src="https://lh6.googleusercontent.com/-WqpgBkIaepM/AAAAAAAAAAI/AAAAAAAAAJI/W2sWTkMnv1I/s120-c/photo.jpg" style="width: 100px;height:100px;">
-                            </a>
-                            <div class="media-body authors-content">
-                                <h4 class="media-heading">Gilson Filho</h4>
-                                <p>Desenvolvedor Python e Django, cansado de Java, recém carioca. Entusiasta Vim e usuário assíduo do <a href="http://github.com/gilsondev">Github</a></p>
-                                <hr style="margin:8px auto">
-
-                                <a href="https://twitter.com/gilsondev" class="label label-default"><i class="fa fa-twitter"></i> Twitter</a>
-                                <a href="https://github.com/gilsondev" class="label label-default"><i class="fa fa-github"></i> Github</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-5">
-                        <div class="media">
-                            <a class="pull-left" href="#">
-                                <img class="media-object dp img-circle" src="https://lh3.googleusercontent.com/-AfUOQdW-5zU/AAAAAAAAAAI/AAAAAAAAIbM/XO-Cf-sTbA8/s120-c/photo.jpg" style="width: 100px;height:100px;">
-                            </a>
-                            <div class="media-body authors-content">
-                                <h4 class="media-heading">Ricardo Medeiros</h4>
-                                <p>Cara a cara eu gaguejo, tenho dúvidas, sou pouco sociável. Mas, escrevendo, cuidado comigo.</p>
-                                <hr style="margin:8px auto">
-
-                                <a href="https://twitter.com/rictm" class="label label-default"><i class="fa fa-twitter"></i> Twitter</a>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
