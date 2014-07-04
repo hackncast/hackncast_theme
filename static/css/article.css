@@ -10,3 +10,8 @@ p {
 .podcast-player {
     width: 80%;
 }
+
+/* Corrige cor do link de download */
+.label > a {
+    color: inherit;
+}
