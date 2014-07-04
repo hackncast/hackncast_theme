@@ -11,7 +11,7 @@
     <article class="container">
         <div class="col-md-12">
             <div class="page-header"><h1>{{ article.title }}</h1></div>
-            <div class="well">{% include "metadata.html" %}</div>
+            <div class="well metadata">{% include "metadata.html" %}</div>
             <div>{{ article.content }}</div>
         </div>
         {% if DISQUS_SITENAME %}

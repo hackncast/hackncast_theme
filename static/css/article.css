@@ -15,3 +15,11 @@ p {
 .label > a {
     color: inherit;
 }
+
+/* Corrige separação dos ícones de metainformação do artigo */
+.metadata i:nth-child(n+2) {
+    margin-left: 10px;
+}
+.metadata i {
+    margin-right: 2px;
+}
