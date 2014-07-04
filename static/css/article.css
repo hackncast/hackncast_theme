@@ -5,3 +5,8 @@ article.container {
 p {
     font-size: 14px;
 }
+
+/* Corrige largura do player */
+.podcast-player {
+    width: 80%;
+}
