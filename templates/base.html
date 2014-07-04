@@ -9,8 +9,6 @@
         <title> {% block title %}{{ SITENAME }}{% endblock title %} </title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-        <meta name="description" content="">
-        <meta name="author" content="">
 
         {% include "feeds.html" %}
 
@@ -25,6 +23,41 @@
             <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
             <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
         {% endblock styles %}
+
+        {% block seo %}
+            <!-- OpenGraph -->
+            <meta property="og:type" content="website"/>
+            <meta property="og:title" content="{{ SITENAME }}"/>
+            <meta property="og:url" content="{{ SITEURL }}"/>
+            <meta property="og:site_name" content="{{ SITENAME }}"/>
+            {% if SITEDESCRIPTION %}
+            <meta property="og:description" content="{{ SITEDESCRIPTION }}"/>
+            {% endif %}
+            {% if OPEN_GRAPH_IMAGE %}
+            <meta property="og:image" content="{{ SITEURL }}{{ OPEN_GRAPH_IMAGE }}"/>
+            {% endif %}
+
+            <!-- General Purpose -->
+            {% if GLOBAL_KEYWORDS %}
+            <meta name="keywords" content="{{ GLOBAL_KEYWORDS|join(', ') }}"/>
+            {% endif %}
+            {% if SITEDESCRIPTION %}
+            <meta name="description" content="{{ SITEDESCRIPTION }}"/>
+            {% endif %}
+            <!-- TODO: ver meta tag author -->
+            <!--meta name="author" content=""-->
+
+            <!-- Twitter -->
+            <meta name="twitter:card" content="summary"/>
+            {% if TWITTER %}
+            <meta name="twitter:site" content="{{ TWITTER }}"/>
+            <meta name="twitter:creator" content="{{ TWITTER }}"/>
+            {% endif %}
+            <meta name="twitter:domain" content="{{ SITEURL|replace("http://", "")}}"/>
+            {% if OPEN_GRAPH_IMAGE %}
+            <meta name="twitter:image:src" content="{{ SITEURL }}{{ OPEN_GRAPH_IMAGE }}"/>
+            {% endif %}
+        {% endblock seo %}
 
         {% include "analytics.html" %}
     {% endblock head %}
