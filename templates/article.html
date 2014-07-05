@@ -27,8 +27,8 @@
     <meta name="twitter:description" content="{{ article.description }}"/>
     <meta name="twitter:image:src" content="{{ article.coverimage }}"/>
     {% if article.podcast %}
-    <meta name="twitter:player" content="{{ article.podcastembed }}"/>
-    <meta name="twitter:player:stream" content="{{ article.podcast }}"/>
+    <meta name="twitter:player" content="https://archive.org/embed/{{ article.podcast }}/{{ article.podcast }}.mp3"/>
+    <meta name="twitter:player:stream" content="http://archive.org/download/{{ article.podcast }}/{{ article.podcast }}.mp3"/>
     <meta name="twitter:player:stream:content_type" content="video/mp4; codecs=&quot;avc1.42E01E1, mp4a.40.2&quot;"/>
     <meta name="twitter:player:width" content="640"/>
     <meta name="twitter:player:height" content="100"/>
