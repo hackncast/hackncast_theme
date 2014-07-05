@@ -59,6 +59,10 @@
             {% endif %}
         {% endblock seo %}
 
+        {% if GOOGLE_SITE_VERIFICATION %}
+            <meta name="google-site-verification" content="{{ GOOGLE_SITE_VERIFICATION }}"/>
+        {% endif %}
+
         {% include "analytics.html" %}
     {% endblock head %}
 </head>
