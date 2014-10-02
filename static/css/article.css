@@ -87,3 +87,7 @@ tt.docutils.literal {
     white-space: nowrap;
     font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
 }
+
+dd {
+    margin-left: 20px;
+}
