@@ -94,15 +94,24 @@
                             <li class="hidden">
                                 <a href="#page-top"></a>
                             </li>
-                            <li class="page-scroll">
-                                <a href="#episodes">Episódios</a>
+                            <li>
+                                <a href="/bug-report">Bug Report</a>
                             </li>
-                            <li class="page-scroll">
-                                <a href="#about">Sobre o Podcast</a>
+
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mais <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Trilhas</a></li>
+                                    <li><a href="#">Tags</a></li>
+                                    <li><a href="#">Changelog</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Release Managers</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Sobre</a></li>
+                                    <li><a href="#">Licensa</a></li>
+                                </ul>
                             </li>
-                            <li class="page-scroll">
-                                <a href="#contact">Fale com a gente</a>
-                            </li>
+
                         </ul>
                     </div>
                     <!-- /.navbar-collapse -->
@@ -117,35 +126,49 @@
     {% endblock content %}
 
     {% block footer %}
-        <footer class="text-center">
-            <div class="footer-above">
-                <div class="container">
-                    <div class="row">
-                        <div class="footer-col col-md-4">
-                        </div>
-                        <div class="footer-col col-md-4">
-                            <h3>Nos acompanhe</h3>
-                            <ul class="list-inline">
-                                <li><a href="https://www.facebook.com/hackncast" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
-                                </li>
-                                <li><a href="http://twitter.com/hackncast" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
-                                </li>
-                                <li><a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-apple"></i></a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="footer-col col-md-4">
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <footer id="footer" class="text-center">
             <div class="footer-below">
                 <div class="container">
                     <div class="row">
+                        <div class="footer-col col-md-3 col-md-offset-1">
+                            <h3>Sobre</h3>
+                            <p class="footer-about">
+                            O Hack ‘n’ Cast é um podcast sobre tecnologia em geral mas sempre mais voltado para o Open Source, Software Livre, GNU/Linux e programação. Claro que não podemos deixar de escapar (esporadicamente) tópicos do mundo nerd como filmes, revistas em quadrinhos, jogos, livros, series e música...
+                            </p>
+                            <div class="col-md-12 text-center">
+                            <a class="btn btn-primary btn-sm text-center" href="/sobre">
+                                <i class="fa fa-info-circle"></i>  Saiba mais
+                            </a>
+                            </div>
+                        </div>
+
+                        <div class="footer-col col-md-3 col-md-offset-1">
+                            <h3>Amigos</h3>
+                            <ul class="list-unstyled">
+                                {% for nome,link in PODCASTS_AMIGOS %}
+                                <li>
+                                    <a class="footer-social" href="{{ link }}" target="_blank" title="{{ nome }}">{{ nome }}</a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+
+                        <div class="footer-col col-md-3 col-md-offset-1">
+                            <h3>Acompanhe</h3>
+                            <ul class="list-unstyled">
+                                {% for nome,icon,link in LINKS_ACOMPANHE %}
+                                <li><a href="{{ link }}" title="{{ nome }}" class="footer-social"><i class="fa fa-fw {{ icon }}"></i> {{ nome }}</a>
+
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="row">
                         <div class="col-lg-12">
-                            <span>Hack ‘n’ Cast é distribuído sobre a licença <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> (CC BY-SA 4.0)</span>
-                            <br>
                             <a class="reference external image-reference" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank"><img alt="Licença Creative Commons" class="align-center" src="http://mindbending.org/pt/images/misc/cc-by-sa.png" style="width: 88px; height: auto; max-width: 100%;"></a>
+                            <br>
+                            <span>Distribuído sobre a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons CC-BY-SA 4.0</a>
                         </div>
                     </div>
                 </div>

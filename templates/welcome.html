@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+
+{% block styles %}
+    {{ super() }}
+{% endblock styles %}
+
+{% block content %}
+   <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <img class="img-responsive" src="{{ SITEURL }}/theme/img/logo.png" alt="">
+                    <div class="intro-text">
+                        <span class="name">Ouça e dissemine conhecimento</span>
+                        <span class="skills">Do it yourself</span>
+                    </div>
+                    <div class="intro-nav">
+                        <ul class="nav nav-pills">
+                            <li class="page-scroll"><a href="#episodes">Episódios</a></li>
+                            <li class="page-scroll"><a href="#devs">Desenvolvedores</a></li>
+                            <li class="page-scroll"><a href="#footer">Social</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="box" id="episodes">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Episódios</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    {% for article in articles[:6] %}
+                    <div class="col-sm-4 episode-item">
+                            {% if loop.index ==  6 %}
+                            <a href="{{ SITEURL}}/releases" class="episode-link">
+                            <div class="caption">
+                                    <div class="caption-content">
+                                    <i class="fa fa-plus fa-3x"></i>
+                                    <br>
+                                    <span class="episode-name">Mais episódios...</span>
+                                    </div>
+                            </div>
+                            <img src="{{ SITEURL }}/images/mais-episodios.png" class="img-responsive" alt="Mais episódios" />
+                            </a>
+                                
+                            {% else %}
+                            <a href="{{ SITEURL}}/{{ article.url }}" class="episode-link">
+                            <div class="caption">
+                                    <div class="caption-content">
+                                    <i class="fa fa-volume-up fa-3x"></i>
+                                    <br>
+                                    <span class="episode-name">Hack 'n' Cast {{ article.title|striptags }}</span>
+                                    </div>
+                            </div>
+                            <img src="{{ SITEURL }}{{ article.image }}" class="img-responsive" alt="{{ article.title | escape }}" />
+                            </a>
+                            {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="box about" id="devs">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Desenvolvedores</h2>
+                    <hr class="star-light-about">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-lg-offset-2">
+                    <p>O Hack 'n' Cast é um podcast livre e aberto, produzido colaborativamente e tem como objetivo ser da comunidade, pela comunidade e para a comunidade.</p>
+                </div>
+                <div class="col-lg-4">
+                    <p>Apesar de ser feito por várias pessoas, seu desenvolvimento é coordenado por {{ SITEAUTHORS|length }} pessoas.</p>
+                </div>
+            </div>
+
+            <div class="row col-md-offset-1">
+                <div class="col-md-12">
+                    {% for author in ACTIVE_AUTHORS %}
+                    <div class="col-lg-5">
+                        <div class="media">
+                            <a class="pull-left" href="#">
+                                <img class="media-object dp img-circle" src="{{ SITEAUTHORS[author]['image'] }}" style="width: 100px;height:100px;">
+                            </a>
+                            <div class="media-body authors-content">
+                                <h4 class="media-heading">{{ author }}</h4>
+                                {{ SITEAUTHORS[author]['description'] }}
+                                <hr style="margin:8px auto">
+
+                                {% for link in SITEAUTHORS[author]['links'] %}
+                                {{ link }}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}
+
+{% block scripts %}
+    {{ super() }}
+    <script src="{{ SITEURL }}/theme/js/classie.js"></script>
+    <script src="{{ SITEURL }}/theme/js/cbpAnimatedHeader.js"></script>
+    <script src="{{ SITEURL }}/theme/js/freelancer.js"></script>
+{% endblock scripts %}
