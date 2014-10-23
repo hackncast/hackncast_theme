@@ -547,3 +547,8 @@ footer li {
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
 }
+
+/* Torna o dropdown na NavBar expasível durante o hover */
+ul.nav li.dropdown:hover > ul.dropdown-menu {
+    display: block;
+}
