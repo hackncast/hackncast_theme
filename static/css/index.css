@@ -1,0 +1,37 @@
+#content {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+header {
+    background-color: #fff;
+    color: #333;
+}
+
+article {
+    text-align: left;
+    overflow: auto;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+.entry-media img{
+    width: 700px;
+    margin: 0 auto 0px;
+}
+.podcast-player {
+    width: 700px;
+}
+
+.podcast-download{
+    margin-bottom: 5px;
+}
+.podcast-subscribe{
+    margin-bottom: 10px;
+}
+
+.podcast-download a,
+.podcast-subscribe a{
+    color: #fff;
+}
