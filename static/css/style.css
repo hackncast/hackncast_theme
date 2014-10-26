@@ -88,7 +88,7 @@ hr.star-primary:after {
 }
 
 .navbar-brand img {
-    margin-top: -42px;
+    margin-top: -10px;
 }
 
 header {
@@ -156,12 +156,10 @@ header .intro-nav a.active {
 }
 
 @media(min-width:768px) {
-    .navbar-brand img {
-        margin-top: -42px;
-    }
-
     .navbar-fixed-top {
+	    /*
         padding: 25px 0;
+	*/
         -webkit-transition: padding .3s;
         -moz-transition: padding .3s;
         transition: padding .3s;
