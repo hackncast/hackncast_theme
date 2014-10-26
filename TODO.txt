@@ -1,0 +1,10 @@
+- Adicionar shareholic
+- Customizar article.html
+- Fazer plugin de Release Managers
+- Criar página de release managers
+- Customizar página de archive (changelog)
+- Customizar página de autores (devs)
+- Customizar página de categorias (trilhas)
+- Customizar página de tags
+- Escrever página sobre
+- Escrever página licensa
