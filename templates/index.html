@@ -8,20 +8,21 @@
 {% block content %}
 <div id="content" class="container">
     <div class="row">
-   <header>
-        <h1>Releases</h1>
+        <h1 class="blue-title text-center">Releases</h1>
         <hr class="star-primary">
         {% if articles %}
         {% for article in (articles_page.object_list if articles_page else articles) %}
         <article>
             <header class="index-header">
-                <div class="header-title-meta">
+                <div class="header-title">
                     {% set article_title = article.title.split('-') %}
                     <h2><a href="{{ SITEURL }}/{{ article.url }}"><small>{{ article_title[0]|striptags }}</small> {{ article_title[1]|striptags}}</a></h2>
+                    <span class="header-meta"><time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>, em <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a></span>
+
                 </div>
             </header>
-                <div class="entry-content">
-                    <div class="container entry-media">
+                <div class="container entry-content">
+                    <div class="entry-media">
                         <a href="{{ SITEURL }}/{{ article.url }}" target="_blank">
                             <img class="img-responsive" src="{{ SITEURL}}{{ article.image_wide }}" title="{{ article.title|striptags }}" alt="{{ article.title|striptags }}">
                         </a>
@@ -46,17 +47,30 @@
                     <div class="entry-text">
                         <p>{{ article.description }}</p>
                     </div>
-                </div>
-                <div>
-                    <a id="more" class="btn btn-primary btn-xs pull-right" href="{{ SITEURL }}/{{ article.url }}">Release Notes <i class="fa fa-long-arrow-right"></i></a>
+                    <div class="entry-more clearfix">
+                        <a id="more" class="btn btn-primary btn-xs pull-right" href="{{ SITEURL }}/{{ article.url }}">Release Notes <i class="fa fa-long-arrow-right"></i></a>
+                    </div>
+                    <span class="entry-tags">
+                        <ul class="list-group list-inline">
+                            <li class="list-group-item">
+                                <i class="fa fa-tags"></i>
+                            </li>
+                            {% for tag in article.tags %}
+                            <li class="list-group-item">
+                                <span class="label label-default">
+                                    <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+                                </span>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </span>
+                    <hr/>
                 </div>
         </article>
         {% if not loop.last %}
-        <hr/>
         {% endif %}
         {% endfor %}
         {% endif %}
-    </header>
     </div>
 </div>
 
