@@ -381,7 +381,7 @@ section.about {
 }
 
 .dp {
-    border:10px solid #eee;
+    border: 10px solid #eee;
     transition: all 0.2s ease-in-out;
 }
 
@@ -549,4 +549,24 @@ footer li {
 /* Torna o dropdown na NavBar expasível durante o hover */
 ul.nav li.dropdown:hover > ul.dropdown-menu {
     display: block;
+}
+
+.blue-title{
+    color: #2c3e50;
+}
+
+.podcast-player {
+    width: 100%;
+}
+
+.podcast-download{
+    margin-bottom: 5px;
+}
+.podcast-subscribe{
+    margin-bottom: 10px;
+}
+
+.podcast-download a,
+.podcast-subscribe a{
+    color: #fff;
 }
