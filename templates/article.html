@@ -56,20 +56,73 @@
 {% endblock %}
 
 {% block content %}
-    <article class="container">
-        <div class="col-md-12">
-            <div class="page-header"><h1>{{ article.title }}</h1></div>
-            <div class="well metadata">{% include "metadata.html" %}</div>
-            <div class="article-summary">
-                <p class="lead">{{ article.description}}</p>
-            </div>
-            <div>{{ article.content }}</div>
+<article class="container">
+    <section id="article-title" class="container">
+        {% set article_title = article.title.split('-') %}
+        <h1 class="text-center"><small>{{ article_title[0]|striptags }}</small> {{ article_title[1]|striptags}}</h1>
+        <div class="text-center header-meta">
+            <span class="header-meta"><time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>, em <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a></span>
         </div>
-        {% if DISQUS_SITENAME %}
-            <div class="col-md-12 comments">
+        <ul class="list-inline text-center">
+        {% for author in article.authors %}
+            <li>
+                <a class="pull-left" href="{{ SITEURL }}/{{ author.url }}">
+                    <img class="media-object dp dp-small img-circle" src="{{ SITEAUTHORS[author.name]['image'] }}" title="{{ author.name }}" alt="{{ author.name }}">
+                </a>
+            </li>
+        {% endfor %}
+        </ul>
+    </section>
+    <section class="box cover-image-box">
+        <div class="container cover-image-container">
+            <img src="{{ SITEURL }}{{ article.image_wide }}" title="{{ article.title|striptags }}" alt="{{ article.title|striptags }}" class="img-responsive img-responsive-center">
+            <div class="podcast text-center">
+                <audio controls="" class="podcast-player">
+                    <source type="audio/ogg" src="https://archive.org/download/{{ article.podcast }}/{{ article.podcast }}.ogg"></source>
+                    <source type="audio/mpeg" src="https://archive.org/download/{{ article.podcast }}/{{ article.podcast }}.mp3"></source>
+                Seu navegador não suporta este objeto. Baixe o podcast abaixo….
+                </audio>
+                <div class="podcast-download">
+                    <span class="label label-success"><a title="Download {{ article.title|striptags }} MP3" target="_blank" href="https://archive.org/download/{{ article.podcast }}/{{ article.podcast }}.mp3"><i class="fa fa-download"></i> Download <span class="caps">MP3</span></a></span>
+                    <span class="label label-success"><a title="Download {{ article.title|striptags }} OGG" target="_blank" href="https://archive.org/download/{{ article.podcast }}/{{ article.podcast }}.ogg"><i class="fa fa-download"></i> Download <span class="caps">OGG</span></a></span>
+                    <span class="label label-success"><a title="Download {{ article.title|striptags }} ZIP" target="_blank" href="https://archive.org/download/{{ article.podcast }}/{{ article.podcast }}_vbr_mp3.zip"><i class="fa fa-download"></i> Download ZIP</a></span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="article-content">
+                    <p class="lead">{{ article.description}}</p>
+                    {{ article.content }}
+                </div>
+                <div class="well article-tags">
+                    <ul class="list-group list-inline">
+                        <li class="list-group-item">
+                            <i class="fa fa-tags"></i>
+                        </li>
+                        {% for tag in article.tags %}
+                        <li class="list-group-item">
+                            <span class="label label-default">
+                                <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+                            </span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</article>
+{% if DISQUS_SITENAME %}
+<section class="container comments">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
                 <h3>Comentários</h3>
                 {% include "disqus.html" %}
-            </div>
-        {% endif %}
-    </article>
+        </div>
+    </div>
+</section>
+{% endif %}
 {% endblock content %}
