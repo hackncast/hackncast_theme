@@ -1,0 +1,9 @@
+#article-title{
+    width: 100%;
+    margin-top: 50px;
+    padding-bottom: 50px;
+    background: none repeat scroll 0 0 #369dcc;
+}
+#article-title h1{
+    color: #fff;
+}

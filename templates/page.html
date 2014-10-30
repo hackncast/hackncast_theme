@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block styles %}
+    {{ super() }}
+    <link href="{{ SITEURL }}/theme/css/article.css" rel="stylesheet" type="text/css">
+    <link href="{{ SITEURL }}/theme/css/page.css" rel="stylesheet" type="text/css">
+{% endblock styles %}
+
+{% block seo %}
+    <!-- OpenGraph -->
+    <meta property="og:type" content="page"/>
+    <meta property="og:title" content="{{ page.title|striptags }}"/>
+    <meta property="og:url" content="{{ SITEURL }}/{{ page.url }}"/>
+    <meta property="og:site_name" content="{{ SITENAME }}"/>
+    <meta property="og:description" content="{{ page.summary|striptags }}"/>
+    {% if ARTICLE_IMAGE  %}
+    <meta property="og:image" content="{{ page.image }}"/>
+    {% endif %}
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary"/>
+    {% if TWITTER %}
+    <meta name="twitter:site" content="{{ TWITTER }}"/>
+    <meta name="twitter:creator" content="{{ TWITTER }}"/>
+    {% endif %}
+    <meta name="twitter:domain" content="{{ SITEURL|replace("http://", "")}}"/>
+    <meta name="twitter:title" content="{{ page.title|striptags }}"/>
+    <meta name="twitter:description" content="{{ page.summary|striptags }}"/>
+    <meta name="twitter:image:src" content="{{ page.image }}"/>
+
+    <!-- Google+ -->
+    <meta itemprop="name" content="{{ page.title|striptags }}"/>
+    <meta itemprop="description" content="{{ page.summary|striptags }}"/>
+    <meta itemprop="image" content="{{ page.imager }}"/>
+
+    <!-- General purpose meta -->
+    <meta name="description" content="{{ page.summary|striptags }}"/>
+{% endblock %}
+
+{% block content %}
+<article class="container">
+    <section id="article-title" class="container">
+        <h1 class="text-center">{{ page.title|striptags }}</h1>
+    </section>
+    <section class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="article-content">
+                    {% if page.description %}
+                    <p class="lead">{{ page.description}}</p>
+                    {% endif %}
+                    {{ page.content }}
+                </div>
+            </div>
+        </div>
+    </section>
+</article>
+
+{% if page.comments != "closed" and DISQUS_SITENAME %}
+<section class="container comments">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+                <h3>Comentários</h3>
+                {% include "includes/disqus.html" %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% endblock content %}
