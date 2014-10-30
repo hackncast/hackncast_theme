@@ -1,0 +1,48 @@
+<footer id="footer" class="text-center">
+    <div class="footer-below">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col col-md-3 col-md-offset-1">
+                    <h3>Sobre</h3>
+                    <p class="footer-about">
+                    O Hack ‘n’ Cast é um podcast sobre tecnologia em geral mas sempre mais voltado para o Open Source, Software Livre, GNU/Linux e programação. Claro que não podemos deixar de escapar (esporadicamente) tópicos do mundo nerd como filmes, revistas em quadrinhos, jogos, livros, series e música...
+                    </p>
+                    <div class="col-md-12 text-center">
+                    <a class="btn btn-primary btn-sm text-center" href="/sobre">
+                        <i class="fa fa-info-circle"></i>  Saiba mais
+                    </a>
+                    </div>
+                </div>
+
+                <div class="footer-col col-md-3 col-md-offset-1">
+                    <h3>Amigos</h3>
+                    <ul class="list-unstyled">
+                        {% for nome,link in PODCASTS_AMIGOS %}
+                        <li>
+                            <a class="footer-social" href="{{ link }}" target="_blank" title="{{ nome }}">{{ nome }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="footer-col col-md-3 col-md-offset-1">
+                    <h3>Acompanhe</h3>
+                    <ul class="list-unstyled">
+                        {% for nome,icon,link in LINKS_ACOMPANHE %}
+                        <li><a href="{{ link }}" title="{{ nome }}" class="footer-social"><i class="fa fa-fw {{ icon }}"></i> {{ nome }}</a>
+
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <a class="reference external image-reference" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank"><img alt="Licença Creative Commons" class="align-center" src="http://mindbending.org/pt/images/misc/cc-by-sa.png" style="width: 88px; height: auto; max-width: 100%;"></a>
+                    <br>
+                    <span>Distribuído sobre a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons CC-BY-SA 4.0</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
