@@ -98,6 +98,9 @@ header {
 	width: 100%;
 }
 
+.index-no-pagination .article {
+	padding-bottom: 0px !important;
+}
 .index-no-pagination .article-even {
 	margin-top: 0px !important;
 }
