@@ -5,73 +5,44 @@
     <link href="{{ SITEURL }}/theme/css/index.css" rel="stylesheet" type="text/css">
 {% endblock styles %}
 
+
 {% block content %}
-<div id="content" class="container">
-    <div class="row">
-        <h1 class="blue-title text-center">Releases</h1>
-        <hr class="star-primary">
-        {% if articles %}
-        {% for article in (articles_page.object_list if articles_page else articles) %}
-        <article>
+
+<section id="index-title" class="container text-center">
+    <h1><a href="{{ SITEURL }}/releases">Releases</a></h1>
+    <i class="fa fa-bullhorn fa-5x img-circle"></i>
+</section>
+
+<div id="content" class="container releases">
+    {% if articles %}
+    {% for article_pair in articles|batch(2) %}
+        <div class="row">
+        {% for article in article_pair %}
+        <article class="col-md-5 article {% if loop.index%2 %}col-md-offset-1 article-odd{% else %}article-even{% endif %}">
             <header class="index-header">
+                <span class="label label-primary hidden-xs hidden-sm article-label article-label-{% if loop.index%2 %}odd{% else %}even{% endif %}"><time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time></span>
                 <div class="header-title">
                     {% set article_title = article.title.split('-') %}
-                    <h2><a href="{{ SITEURL }}/{{ article.url }}"><small>{{ article_title[0]|striptags }}</small> {{ article_title[1]|striptags}}</a></h2>
-                    <span class="header-meta"><time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>, em <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a></span>
+                    <h2><small>{{ article_title[0]|striptags }}</small><br> <a href="{{ SITEURL }}/{{ article.url }}">{{ article_title[1]|striptags}}</a></h2>
+                    <span class="header-meta header-meta-time clearfix"><time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time></span>
+                    <span class="header-meta">em <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a></span>
 
                 </div>
             </header>
-                <div class="container entry-content">
-                    <div class="entry-media">
-                        <a href="{{ SITEURL }}/{{ article.url }}" target="_blank">
-                            <img class="img-responsive" src="{{ SITEURL}}{{ article.image_wide }}" title="{{ article.title|striptags }}" alt="{{ article.title|striptags }}">
-                        </a>
-
-                        <div class="podcast text-center">
-                            <audio controls="" class="podcast-player">
-                                <source type="audio/ogg" src="https://archive.org/download/{{ article.podcast }}/{{ article.podcast }}.ogg"></source>
-                                <source type="audio/mpeg" src="https://archive.org/download/{{ article.podcast }}/{{ article.podcast }}.mp3"></source>
-                            Seu navegador não suporta este objeto. Baixe o podcast abaixo….
-                            </audio>
-                            <div class="podcast-download">
-                                <span class="label label-success"><a title="Download {{ article.title|striptags }} MP3" target="_blank" href="https://archive.org/download/{{ article.podcast }}/{{ article.podcast }}.mp3"><i class="fa fa-download"></i> Download <span class="caps">MP3</span></a></span>
-                                <span class="label label-success"><a title="Download {{ article.title|striptags }} OGG" target="_blank" href="https://archive.org/download/{{ article.podcast }}/{{ article.podcast }}.ogg"><i class="fa fa-download"></i> Download <span class="caps">OGG</span></a></span>
-                                <span class="label label-success"><a title="Download {{ article.title|striptags }} ZIP" target="_blank" href="https://archive.org/download/{{ article.podcast }}/{{ article.podcast }}_vbr_mp3.zip"><i class="fa fa-download"></i> Download ZIP</a></span>
-                            </div>
-                            <div class="podcast-subscribe">
-                                <span class="label label-success"><a title="Inscrever-se no Feed RSS" target="_blank" href="http://feeds.feedburner.com/hack-n-cast"><i class="fa fa-rss"></i> Assinar Feed <span class="caps">RSS</span></a></span>
-                                <span class="label label-success"><a title="Inscrever-se no iTunes" target="_blank" href="https://itunes.apple.com/br/podcast/hack-n-cast/id884916846"><i class="fa fa-apple"></i> Assinar no iTunes</a></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="entry-text">
-                        <p>{{ article.description }}</p>
-                    </div>
-                    <div class="entry-more clearfix">
-                        <a id="more" class="btn btn-primary btn-xs pull-right" href="{{ SITEURL }}/{{ article.url }}">Release Notes <i class="fa fa-long-arrow-right"></i></a>
-                    </div>
-                    <span class="entry-tags">
-                        <ul class="list-group list-inline">
-                            <li class="list-group-item">
-                                <i class="fa fa-tags"></i>
-                            </li>
-                            {% for tag in article.tags %}
-                            <li class="list-group-item">
-                                <span class="label label-default">
-                                    <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
-                                </span>
-                            </li>
-                            {% endfor %}
-                        </ul>
-                    </span>
-                    <hr/>
-                </div>
+            <div class="entry-media">
+                <img src="{{ article.image_sqr }}" class="img-responsive">
+            </div>
+            <div class="post-text">
+                {{ article.summary }}
+            </div>
+            <div class="entry-more clearfix">
+                <a id="more" class="btn btn-primary pull-right" href="{{ SITEURL }}/{{ article.url }}">Release Notes <i class="fa fa-long-arrow-right"></i></a>
+            </div>
         </article>
-        {% if not loop.last %}
-        {% endif %}
         {% endfor %}
-        {% endif %}
-    </div>
+        </div>
+    {% endfor %}
+    {% endif %}
 </div>
 
 {% include 'includes/pagination.html' %}
