@@ -2,8 +2,16 @@
     width: 100%;
     margin-top: 50px;
     padding-bottom: 50px;
-    background: none repeat scroll 0 0 #369dcc;
+    background: none repeat scroll 0 0 #428bca;
 }
 #article-title h1{
     color: #fff;
+}
+.bg-form{
+    width: 100%;
+    border: 0 none;
+    height: 550px;
+}
+#descricao {
+	height: 200px;
 }
