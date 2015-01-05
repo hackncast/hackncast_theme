@@ -1,4 +1,5 @@
 body {
+    background-color: #eaebed;
     overflow-x: hidden;
 }
 
@@ -80,7 +81,7 @@ hr.star-primary {
 
 hr.star-primary:after {
     color: #2c3e50;
-    background-color: #fff;
+    background-color: #eaebed;
 }
 
 .img-centered {
