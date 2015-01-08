@@ -3,6 +3,7 @@
     margin-top: 50px;
     padding-bottom: 50px;
     background: none repeat scroll 0 0 #428bca;
+    margin-bottom: 60px;
 }
 #article-title h1{
     color: #fff;
@@ -14,4 +15,14 @@
 }
 #descricao {
 	height: 200px;
+}
+#article-title i.fa{
+    background-color: #428bca;
+    box-shadow: 0 0 0 6px #eaebed;
+    color: #fff;
+    margin-left: -45px;
+    margin-top: 10px;
+    padding: 15px;
+    position: absolute;
+    z-index: 9;
 }
