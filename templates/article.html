@@ -13,7 +13,7 @@
     <meta property="og:site_name" content="{{ SITENAME }}"/>
     <meta property="og:description" content="{{ article.description }}"/>
     {% if ARTICLE_IMAGE  %}
-    <meta property="og:image" content="{{ article.image_sqr }}"/>
+    <meta property="og:image" content="{{ article.image }}"/>
     <meta property="og:image" content="{{ article.image_wide }}"/>
     {% endif %}
 
@@ -26,7 +26,7 @@
     <meta name="twitter:domain" content="{{ SITEURL|replace("http://", "")}}"/>
     <meta name="twitter:title" content="{{ article.title|striptags }}"/>
     <meta name="twitter:description" content="{{ article.description }}"/>
-    <meta name="twitter:image:src" content="{{ article.image_sqr }}"/>
+    <meta name="twitter:image:src" content="{{ article.image }}"/>
     <meta name="twitter:image:src" content="{{ article.image_wide }}"/>
     {% if article.podcast %}
     <meta name="twitter:player" content="https://archive.org/embed/{{ article.podcast }}/{{ article.podcast }}.mp3"/>
@@ -45,7 +45,7 @@
     <!-- Google+ -->
     <meta itemprop="name" content="{{ article.title|striptags }}"/>
     <meta itemprop="description" content="{{ article.description }}"/>
-    <meta itemprop="image" content="{{ article.image_sqr }}"/>
+    <meta itemprop="image" content="{{ article.image }}"/>
     <meta itemprop="image" content="{{ article.image_wide }}"/>
 
     <!-- General purpose meta -->
