@@ -31,14 +31,13 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Inscreva-se <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="https://itunes.apple.com/br/podcast/hack-n-cast/id884916846?l=pt">iTunes</a></li>
-                            <li><a href="http://pcasts.in/hackncast">Pocket Casts</a></li>
-                            <li><a href="http://podflix.com.br/hackncast/">Podflix</a></li>
-                            <li><a href="http://youtuner.co/channel/mindbending.org_pt_category_hack-n-cast">You Tuner</a></li>
-                            <li><a href="http://www.stitcher.com/podcast/hack-n-cast">Stitcher</a></li>
-                            <li><a href="http://imasters.com.br/perfil/hackcast/">iMasters</a></li>
+                        {% for title, link in INSCREVA_SE %}
+                            {% if title == None and link == None %}
                             <li class="divider"></li>
-                            <li><a href="http://feeds.feedburner.com/hack-n-cast">FeedBurner</a></li>
+                            {% else %}
+                            <li><a href="{{ link }}">{{ title }}</a></li>
+                            {% endif %}
+                        {% endfor %}
                         </ul>
                     </li>
 
