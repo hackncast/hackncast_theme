@@ -1,0 +1,65 @@
+#devs-title{
+    background: none repeat scroll 0 0 #428bca;
+    margin-bottom: 60px;
+    margin-top: 50px;
+    padding-bottom: 50px;
+    width: 100%;
+    color: #fff;
+}
+
+#devs-title i.fa {
+    background-color: #428bca;
+    box-shadow: 0 0 0 6px #eaebed;
+    color: #fff;
+    margin-left: -45px;
+    margin-top: 10px;
+    padding: 15px;
+    position: absolute;
+    z-index: 9;
+}
+
+h1 {
+    padding-top: 50px;
+}
+
+#devs-index{
+	margin-top: 100px;
+}
+.author-avatar img {
+	width: 100%;
+	height: auto;
+	max-width: 150px;
+	max-height: auto;
+}
+
+.author-label {
+	font-weight: 700;
+	text-align: right;
+}
+
+.author-data p{
+	font-size: 16px;
+}
+
+.author-level span{
+	font-size: 15px;
+	text-transform: uppercase;
+}
+
+.author-actual-xp {
+	font-size: 14px;
+}
+
+.author-links ul li, .author-contributions ul li {
+	padding-right: 0px;
+	padding-bottom: 5px;
+}
+
+@media (max-width: 992px){
+	.author-name-and-bio {
+		text-align: center;
+	}
+	h3 small {
+		display: block;
+	}
+}

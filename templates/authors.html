@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+
+{% set _authors = [] %}
+{% for author, articles in authors %}
+    {% set size = articles|count %}
+    {% do _authors.append((author, size, articles)) %}
+{% endfor %}
+
+{% block styles %}
+    {{ super() }}
+    <link href="{{ SITEURL }}/theme/css/authors.css" rel="stylesheet" type="text/css">
+{% endblock styles %}
+
+{% block title %}Desenvolvedores | {{ SITENAME }}{% endblock %}
+
+{% block content %}
+<section class="container text-center" id="devs-title">
+        <h1 class="text-center">Desenvolvedores</h1>
+        <i class="fa fa-code fa-5x img-circle"></i>
+</section>
+
+<section id="devs-index" class="container">
+    <div class="row">
+        {% for author, articles_count, articles in _authors|sort(attribute=1, reverse=True) %}
+        {% set author_data = SITEAUTHORS[author.name] %}
+        {% if 'image' in author_data %}
+            {% set author_img = author_data['image'] %}
+        {% else %}
+            {% set author_img = '/theme/img/avatar.png' %}
+        {% endif %}
+        {% if 'race' in author_data %}
+            {% set race = author_data['race'] %}
+        {% else %}
+            {% set race = 'Humano' %}
+        {% endif %}
+
+        {% set level, xp, next_xp = CALC_STATS(articles_count) %}
+
+        <div class="col-xs-12 col-md-12">
+            <section class="panel panel-default" id="author-{{ author.slug }}">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="author-avatar col-xs-12 col-sm-2 col-md-2">
+                            <img class="img-responsive center-block" src="{{ author_img }}" title="{{ author.name|escape }}" alt="{{ author.name|escape }}"/>
+                        </div>
+                        <div class="col-xs-12 col-sm-10 col-md-10">
+                            <!-- Name and Bio -->
+                            <div class="row author-data">
+                                <div class="author-name-and-bio col-xs-12 col-sm-12">
+                                    <h3>{{ author.name }} <small>({{ race }})</small></h3>
+                                    {% if 'description' in author_data %}
+                                    <p class="text-muted small">
+                                    {{ author_data['description']}}
+                                    </p>
+                                    {% endif %}
+                                    <hr/>
+                                </div>
+                            </div>
+
+                            <!-- Level & XP -->
+                            <div class="row author-data">
+                                <!-- Level -->
+                                <div class="author-label col-xs-6 col-sm-2">
+                                    <p>Nível:</p>
+                                </div>
+                                <div class="author-level col-xs-6 col-sm-3">
+                                    <p>{{ level }} <span class="text-muted">({{ LEVELS[level] }})</span></p>
+                                </div>
+
+                                <!-- XP -->
+                                <div class="author-label col-xs-6 col-sm-3">
+                                    <p>Experiência:</p>
+                                </div>
+                                <div class="author-xp col-xs-6 col-sm-4">
+                                    <p><span class="author-actual-xp">{{ xp }}</span><span class="author-next-xp text-muted">/{{ next_xp }}</span></p>
+                                </div>
+                            </div>
+
+                            <!-- Classe -->
+                            <div class="row author-data">
+                                {% if 'class' in author_data %}
+                                <div class="author-label col-xs-6 col-sm-2">
+                                    <p>Classe:</p>
+                                </div>
+                                <div class="author-class col-xs-6 col-sm-10">
+                                    <p>{{ author_data['class'] }}</p>
+                                </div>
+                                {% endif %}
+                            </div>
+
+                            <!-- Links -->
+                            <div class="row author-data">
+                                {% if 'links' in author_data %}
+                                <div class="author-label col-xs-6 col-sm-2">
+                                    <p>Links:</p>
+                                </div>
+                                <div class="author-links col-xs-6 col-sm-10">
+                                    <ul class="list-inline">
+                                    {% for title, icon, link in author_data['links'] %}
+                                        <li>
+                                        <a href="{{ link }}" class="label label-default" target="_blank"><i class="fa {{ icon }}"></i> {{ title }}</a>
+                                        </li>
+                                    {% endfor %}
+                                    </ul>
+                                </div>
+                                {% endif %}
+                            </div>
+
+                            <!-- Releases -->
+                            <div class="row author-data">
+                                <div class="author-label col-xs-6 col-sm-2">
+                                    <p>Releases:</p>
+                                </div>
+                                <div class="author-contributions col-xs-6 col-sm-10">
+                                    <ul class="list-inline">
+                                    {% for article in articles|sort(attribute='date') %}
+                                        <li>
+                                        <a class="label label-primary" href="{{ SITEURL }}/{{ article.url }}" target="_blank">{{ article.title.split('-')[0].rstrip() }}</a>
+                                        </li>
+                                    {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
