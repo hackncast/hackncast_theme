@@ -122,14 +122,14 @@ header .intro-text .skills {
     font-weight: 300;
 }
 
-header .intro-nav li{
+header .intro-nav li, #more-devs .intro-nav li{
 	display: inline-block;
 	float: none;
 }
-header .intro-nav {
+header .intro-nav, #more-devs .intro-nav{
 	margin-top: 50px;
 }
-header .intro-nav a{
+header .intro-nav a, #more-devs .intro-nav a{
 	background-color: #eee;
 	color: #369ecd;
 }
@@ -137,9 +137,17 @@ header .intro-nav a{
 header .intro-nav a:hover,
 header .intro-nav a:focus,
 header .intro-nav a:active,
-header .intro-nav a.active {
+header .intro-nav a.active,
+#more-devs .intro-nav a:hover,
+#more-devs .intro-nav a:focus,
+#more-devs .intro-nav a:active,
+#more-devs .intro-nav a.active {
 	background-color: #369ecd;
 	color: #eee;
+}
+
+#more-devs {
+	text-align: center;
 }
 
 @media(min-width:768px) {
