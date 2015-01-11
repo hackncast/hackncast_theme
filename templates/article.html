@@ -65,9 +65,14 @@
         </div>
         <ul class="list-inline text-center">
         {% for author in article.authors %}
+        {% if 'image' in SITEAUTHORS[author.name] %}
+            {% set author_image = SITEAUTHORS[author.name]['image'] %}
+        {% else %}
+            {% set author_image = '/theme/img/avatar.png' %}
+        {% endif %}
             <li>
                 <a class="pull-left" href="{{ SITEURL }}/{{ author.url }}">
-                    <img class="media-object dp dp-small img-circle" src="{{ SITEAUTHORS[author.name]['image'] }}" title="{{ author.name }}" alt="{{ author.name }}">
+                    <img class="media-object dp dp-small {% if author.name not in MAIN_AUTHORS %}dp-guest{% endif %} img-circle" src="{{ author_image }}" title="{{ author.name|escape }}" alt="{{ author.name|escape }}">
                 </a>
             </li>
         {% endfor %}

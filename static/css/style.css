@@ -390,16 +390,24 @@ section.about {
 }
 
 .dp {
-    border: 10px solid #eee;
+    border: 10px solid #f8f8f8;
     transition: all 0.2s ease-in-out;
 }
 
+.dp-guest {
+    border: 10px solid #E0E0E0 !important;
+}
+
 .dp:hover {
-    border:2px solid #eee;
+    border:2px solid #f8f8f8;
     transform:rotate(360deg);
     -ms-transform:rotate(360deg);
     -webkit-transform:rotate(360deg);
     /*-webkit-font-smoothing:antialiased;*/
+}
+
+.dp-guest:hover {
+    border:2px solid #E0E0E0 !important;
 }
 
 form .row:first-child .floating-label-form-group {
