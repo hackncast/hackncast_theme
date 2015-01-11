@@ -106,9 +106,11 @@
                                 {% endif %}
                                 <hr style="margin:8px auto">
 
-                                {% for link in SITEAUTHORS[author]['links'] %}
-                                {{ link }}
-                                {% endfor %}
+                                {% if 'links' in author_data %}
+                                    {% for title, icon, link in author_data['links'] %}
+                                        <a href="{{ link }}" class="label label-default" target="_blank"><i class="fa {{ icon }}"></i> {{ title }}</a>
+                                    {% endfor %}
+                                {% endif %}
                             </div>
                         </div>
                     </div>
