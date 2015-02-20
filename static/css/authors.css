@@ -63,3 +63,15 @@ h1 {
 		display: block;
 	}
 }
+
+h3.author-name .anchor .fa.fa-link {
+	display: none;
+}
+h3.author-name:hover .anchor .fa.fa-link {
+	display: inline-block;
+}
+
+.author-name {
+	padding-top: 65px;
+	margin-top: -65px;
+}

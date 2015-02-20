@@ -37,7 +37,7 @@
         {% set level, xp, next_xp = CALC_STATS(articles_count) %}
 
         <div class="col-xs-12 col-md-12">
-            <section class="panel panel-default" id="author-{{ author.slug }}">
+            <section class="panel panel-default">
                 <div class="panel-body">
                     <div class="row">
                         <div class="author-avatar col-xs-12 col-sm-2 col-md-2">
@@ -47,7 +47,12 @@
                             <!-- Name and Bio -->
                             <div class="row author-data">
                                 <div class="author-name-and-bio col-xs-12 col-sm-12">
-                                    <h3>{{ author.name }} <small>({{ race }})</small></h3>
+                                    <h3 class="author-name" id="{{ author.slug }}">
+                                        <a href="#{{ author.slug }}" class="anchor">
+                                            <i class="fa fa-link"></i>
+                                        </a>
+                                        {{ author.name }} <small>({{ race }})</small>
+                                    </h3>
                                     {% if 'description' in author_data %}
                                     <p class="text-muted small">
                                     {{ author_data['description']}}
