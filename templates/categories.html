@@ -1,9 +1,46 @@
 {% extends "base.html" %}
+
+{% block styles %}
+    {{ super() }}
+    <link href="{{ SITEURL }}/theme/css/categories.css" rel="stylesheet" type="text/css">
+{% endblock styles %}
+
 {% block title %}Trilhas | {{ SITENAME }}{% endblock %}
+
 {% block content %}
-<ul>
+<section class="container text-center" id="trilhas-title">
+        <h1 class="text-center">Trilhas</h1>
+        <i class="fa fa-road fa-5x img-circle"></i>
+</section>
+
+<section id="trilhas-index" class="container">
 {% for category, articles in categories %}
-	<li><a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a></li>
+    <div class="panel panel-trilha">
+        <div class="row">
+            <div class="col-xs-12 col-sm-2 col-md-2 trilha-image">
+                {% if category.name in CATEGORY_IMAGES %}
+                <img class="img-responsive center-block" src="{{ SITEURL }}/{{ CATEGORY_IMAGES[category.name]}}" alt="{{ category.name|striptags }}"/>
+                {% else %}
+                <img class="img-responsive center-block" src="{{ SITEURL }}/images/trilhas/default.jpg" alt="{{ category.name|striptags }}"/>
+                {% endif %}
+            </div>
+            <div class="col-xs-12 col-sm-10 col-md-10 trilha-content">
+                <h2>
+                    {{ category.name }}
+                    <span class="badge tamanho-trilha">{{ articles|count }}</span>
+                </h2>
+                <ul class="list-inline trilha-articles">
+                    {% for article in articles|sort(attribute='date') %}
+                    <li>
+                    <a class="label label-default" title="{{ article.title|striptags }}" href="{{ SITEURL }}/{{ article.url }}" target="_blank">
+                        {{ article.title }}
+                    </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
 {% endfor %}
-</ul>
+</section>
 {% endblock %}
