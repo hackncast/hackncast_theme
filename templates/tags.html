@@ -1,9 +1,23 @@
 {% extends "base.html" %}
+
+{% block styles %}
+    {{ super() }}
+    <link href="{{ SITEURL }}/theme/css/tags.css" rel="stylesheet" type="text/css">
+{% endblock styles %}
+
 {% block title %}Tags | {{ SITENAME }}{% endblock %}
+
 {% block content %}
-<ul>
-{% for tag, articles in tags %}
-	<li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></li>
-{% endfor %}
-</ul>
+<section class="container text-center" id="tags-title">
+        <h1 class="text-center">Tags</h1>
+        <i class="fa fa-tags fa-5x img-circle"></i>
+</section>
+
+<section id="tags-index" class="container">
+    <ul>
+    {% for tag, articles in tags %}
+        <li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></li>
+    {% endfor %}
+    </ul>
+</section>
 {% endblock %}
