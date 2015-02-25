@@ -129,15 +129,15 @@ header .intro-text .skills {
 }
 
 header .intro-nav li, #more-devs .intro-nav li{
-	display: inline-block;
-	float: none;
+    display: inline-block;
+    float: none;
 }
 header .intro-nav, #more-devs .intro-nav{
-	margin-top: 50px;
+    margin-top: 50px;
 }
 header .intro-nav a, #more-devs .intro-nav a{
-	background-color: #eee;
-	color: #369ecd;
+    background-color: #eee;
+    color: #369ecd;
 }
 
 header .intro-nav a:hover,
@@ -148,12 +148,12 @@ header .intro-nav a.active,
 #more-devs .intro-nav a:focus,
 #more-devs .intro-nav a:active,
 #more-devs .intro-nav a.active {
-	background-color: #369ecd;
-	color: #eee;
+    background-color: #369ecd;
+    color: #eee;
 }
 
 #more-devs {
-	text-align: center;
+    text-align: center;
 }
 
 @media(min-width:768px) {
@@ -172,9 +172,9 @@ header .intro-nav a.active,
 
 @media(min-width:768px) {
     .navbar-fixed-top {
-	    /*
+        /*
         padding: 25px 0;
-	*/
+    */
         -webkit-transition: padding .3s;
         -moz-transition: padding .3s;
         transition: padding .3s;
@@ -451,11 +451,11 @@ footer a.footer-social.active {
 }
 
 footer .footer-about {
-	font-size: medium;
+    font-size: medium;
 }
 
 footer li {
-	margin-bottom: 5px;
+    margin-bottom: 5px;
 }
 
 .btn-social {
