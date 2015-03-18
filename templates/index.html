@@ -15,7 +15,7 @@
 
 <div id="content" class="container releases">
     {% if articles %}
-    {% for article_pair in articles|batch(2) %}
+    {% for article_pair in (articles_page.object_list if articles_page else articles)|batch(2) %}
         <div class="row">
         {% for article in article_pair %}
         <article class="col-md-5 article {% if loop.index%2 %}col-md-offset-1 article-odd{% else %}article-even{% endif %}">
