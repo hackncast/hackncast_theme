@@ -22,13 +22,68 @@ h1 {
     padding-top: 50px;
 }
 
+.timeline a {
+    color: #428bca;
+}
+
 #archives-index{
 	margin-top: 100px;
 	margin-bottom: 100px;
 }
 
-#all-tags > li {
-    margin-top: 10px;
-    margin-bottom: 10px;
+.timeline-wrapper h2 {
+    background: none repeat scroll 0 0 #428bca;
+    border-radius: 3px;
+    color: #FFFFFF;
+    font-size: 20px;
+    margin: 0 auto;
+    text-align: center;
+    width: 150px;
 }
-
+.timeline {
+    background: url("../img/timeline_bg.jpg") repeat-y scroll center top rgba(0, 0, 0, 0);
+    list-style: none outside none;
+    margin: 0;
+    overflow: hidden;
+    padding: 10px 0;
+    position: relative;
+}
+.timeline > li {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #DDDDDD;
+    border-radius: 3px;
+    clear: both;
+    float: left;
+    margin: 0;
+    padding: 10px;
+    position: relative;
+    text-align: right;
+    width: 43.5%;
+}
+.timeline > li:nth-of-type(2n) {
+    float: right;
+    text-align: left;
+    margin-right: -1px;
+}
+.timeline > li > h3 {
+    font-size: 15px;
+}
+.timeline > li > span {
+    display: block;
+}
+.timeline > li > span > a {
+    font-size: 15px;
+}
+.timeline li:nth-of-type(2n):after {
+    left: auto;
+    right: 100%;
+}
+.timeline li:before, .timeline li:after {
+    background: none repeat scroll 0 0 #428bca;
+    content: " ";
+    height: 3px;
+    left: 100%;
+    position: absolute;
+    top: 50%;
+    width: 15%;
+}
