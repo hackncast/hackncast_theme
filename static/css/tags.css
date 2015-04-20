@@ -24,5 +24,21 @@ h1 {
 
 #tags-index{
 	margin-top: 100px;
+	margin-bottom: 50px;
 }
 
+#tag-search {
+    margin-bottom: 25px;
+}
+
+#all-tags {
+    text-align: justify;
+}
+
+#all-tags > li {
+    margin-bottom: 5px;
+}
+
+.label > a {
+    color: inherit;
+}
