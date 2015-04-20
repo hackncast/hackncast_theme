@@ -39,6 +39,37 @@ h1 {
     margin-bottom: 5px;
 }
 
-.label > a {
-    color: inherit;
+#all-tags a {
+    color: #428bca;
+}
+
+.tag-1 {
+    font-size: 31px;
+}
+.tag-2 {
+    font-size: 29px;
+}
+.tag-3 {
+    font-size: 27px;
+}
+.tag-4 {
+    font-size: 25px;
+}
+.tag-5 {
+    font-size: 23px;
+}
+.tag-6 {
+    font-size: 21px;
+}
+.tag-7 {
+    font-size: 19px;
+}
+.tag-8 {
+    font-size: 17px;
+}
+.tag-9 {
+    font-size: 15px;
+}
+.tag-10 {
+    font-size: 13px;
 }

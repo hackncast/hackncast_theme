@@ -23,11 +23,11 @@
         </form>
     </div>
     <ul class="list-inline" id="all-tags">
-    {% for tag, articles in tags %}
-        <li class="">
-            <span class="label label-primary">
-                <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
-        </span>
+    {% for tag in tag_cloud|sort %}
+        <li class="tag-{{ tag.1 }}">
+            <a href="{{ SITEURL }}/{{ tag.0.url }}">
+                {{ tag.0|lower }}
+            </a>
         </li>
     {% endfor %}
     </ul>
@@ -44,27 +44,27 @@
             };
 
             function listFilter() {
-
                 $('.filterinput')
-                .change( function () {
-                    var filter = $(this).val();
-                    if(filter) {
-                        // this finds all links in a list that contain the input,
-                        // and hide the ones not containing the input while showing the ones that do
-                        $('#all-tags').find("a:not(:Contains(" + filter + "))").parent().parent().hide();
-                        $('#all-tags').find("a:Contains(" + filter + ")").parent().parent().show();
-                    } else {
-                        $('#all-tags').find("li").show();
-                    }
-                    return false;
-                })
-                .keyup( function () {
-                    // fire the above change event after every letter
-                    $(this).change();
-                });
+                    .change( function () {
+                        var filter = $(this).val();
+                        if(filter) {
+                            $('#all-tags').find("a:not(:Contains(" + filter + "))").parent().hide();
+                            $('#all-tags').find("a:Contains(" + filter + ")").parent().show();
+                        } else {
+                            $('#all-tags').find("li").show();
+                        }
+                        return false;
+                    })
+                    .keydown( function(event){
+                        if(event.keyCode == 13){
+                            event.preventDefault();
+                            return false;
+                        }
+                    })
+                    .keyup( function () {
+                        $(this).change();
+                    });
             }
-
-            //ondomready
             $(function () {
                 listFilter($());
             });
