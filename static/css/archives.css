@@ -1,0 +1,34 @@
+#archives-title{
+    background: none repeat scroll 0 0 #428bca;
+    margin-bottom: 60px;
+    margin-top: 50px;
+    padding-bottom: 50px;
+    width: 100%;
+    color: #fff;
+}
+
+#archives-title i.fa {
+    background-color: #428bca;
+    box-shadow: 0 0 0 6px #eaebed;
+    color: #fff;
+    margin-left: -45px;
+    margin-top: 10px;
+    padding: 15px;
+    position: absolute;
+    z-index: 9;
+}
+
+h1 {
+    padding-top: 50px;
+}
+
+#archives-index{
+	margin-top: 100px;
+	margin-bottom: 100px;
+}
+
+#all-tags > li {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+

@@ -1,15 +1,29 @@
 {% extends "base.html" %}
+
 {% block title %}Changelog | {{ SITENAME }}{% endblock %}
+
+{% block styles %}
+    {{ super() }}
+    <link href="{{ SITEURL }}/theme/css/archives.css" rel="stylesheet" type="text/css">
+{% endblock styles %}
+
 {% block content %}
-{% for year, date_year in dates|groupby( 'date.year' ) %}
-<h2>{{ year }}</h2>
-{% for month, articles in date_year|groupby( 'date.month' ) %}
-<h3>{{ articles[ 0 ].date.strftime( '%B' ) }}</h3>
-<ul>
-{% for article in articles %}
-	<li><a href="{{ article.url }}">{{ article.title }}</a></li>
-{% endfor %}
-</ul>
-{% endfor %}
-{% endfor %}
+<section class="container text-center" id="archives-title">
+        <h1 class="text-center">Changelog</h1>
+        <i class="fa fa-archive fa-5x img-circle"></i>
+</section>
+
+<section id="archives-index" class="container">
+    {% for year, date_year in dates|groupby( 'date.year' ) %}
+        <h2>{{ year }}</h2>
+        {% for month, articles in date_year|groupby( 'date.month' ) %}
+            <h3>{{ articles[ 0 ].date.strftime( '%B' ) }}</h3>
+            <ul>
+            {% for article in articles %}
+                <li><a href="{{ article.url }}">{{ article.title }}</a></li>
+            {% endfor %}
+            </ul>
+        {% endfor %}
+    {% endfor %}
+</section>
 {% endblock %}
