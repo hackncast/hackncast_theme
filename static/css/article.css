@@ -187,3 +187,7 @@ blockquote p.attribution{
 #article-page{
 	background-color: #fff;
 }
+
+.container.comments {
+    padding-bottom: 50px;
+}

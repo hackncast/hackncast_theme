@@ -120,14 +120,5 @@
         </div>
     </section>
 </article>
-{% if DISQUS_SITENAME %}
-<section class="container comments">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-                <h3>Comentários</h3>
-                {% include "includes/disqus.html" %}
-        </div>
-    </div>
-</section>
-{% endif %}
+{% include 'includes/comments.html' %}
 {% endblock content %}
