@@ -52,7 +52,7 @@
                     {% if page.description %}
                     <p class="lead">{{ page.description}}</p>
                     {% endif %}
-                    {{ page.content }}
+                    {{ page.content|replace("<html>", "")|replace("</html>", "")|replace("<body>", "")|replace("</body>", "") }}
                 </div>
             </div>
         </div>

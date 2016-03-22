@@ -100,7 +100,7 @@
             <div class="col-md-10 col-md-offset-1" id="article-page">
                 <div class="article-content">
                     <p class="lead">{{ article.description}}</p>
-                    {{ article.content }}
+                    {{ article.content|replace("<html>", "")|replace("</html>", "")|replace("<body>", "")|replace("</body>", "") }}
                 </div>
                 <div class="well article-tags">
                     <ul class="list-group list-inline">
