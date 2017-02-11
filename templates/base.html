@@ -56,7 +56,7 @@
             <meta name="twitter:site" content="{{ TWITTER }}"/>
             <meta name="twitter:creator" content="{{ TWITTER }}"/>
             {% endif %}
-            <meta name="twitter:domain" content="{{ SITEURL|replace("http://", "")}}"/>
+            <meta name="twitter:domain" content="{{ SITEURL|replace("http://", "")|replace("https://", "")|replace("//", "")}}"/>
             {% if OPEN_GRAPH_IMAGE %}
             <meta name="twitter:image:src" content="{{ SITEURL }}{{ OPEN_GRAPH_IMAGE }}"/>
             {% endif %}
