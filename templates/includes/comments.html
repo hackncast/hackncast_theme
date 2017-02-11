@@ -25,7 +25,7 @@
                     {% if content.disqus_url %}
                     var disqus_url = '{{ content.disqus_url }}';
                     {% else %}
-                        var disqus_url = 'https:{{ SITEURL }}/{{ content.url }}';
+                        var disqus_url = 'http:{{ SITEURL }}/{{ content.url }}';
                     {% endif %}
                     var disqus_config = function () {
                         this.language = "{{ DEFAULT_LANG }}";
